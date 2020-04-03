@@ -5,17 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Perf test</title>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly-gl2d.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly-mapbox.min.js'></script>
+    <script>
+        console.log('>> Mark Start');
+        // performance.mark('start');
+        const startTime = new Date().getTime()
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.51.1/plotly-basic.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.51.1/plotly-cartesian.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.51.1/plotly-finance.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.51.1/plotly-geo.min.js'></script>
+    <script>
+        // console.log('>>> Almost there')
+    </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly-gl2d.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly-gl3d.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly-mapbox.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.23/dayjs.min.js'></script>
+    <script src='script.js'></script>
+    <script>
+        console.log('>> Mark End');
+        // performance.mark('end');
+        // const parseTime = performance.measure('total', 'start', 'end').duration / 1000;
+        // console.log(`ParseTime: ${parseTime} seconds`)
+
+        const endTime = new Date().getTime()
+        const parseTime2 = (endTime - startTime) / 1000
+        console.log(`ParseTime: ${parseTime2} seconds`)
+    </script>
   </head>
   <body>
     <button id='calc'>Calculate</button>
     <button id='load'>Load Script</button>
     <div id='output'></div>
-    <script src='script.js'></script>
   </body>
 </html>

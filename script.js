@@ -1,7 +1,9 @@
 window.onload = function () {
+  console.log('>> Page Loaded')
   const p = performance
   const calc = document.getElementById('calc')
   const load = document.getElementById('load')
+  const image = document.getElementById('img')
 
   function addScript () {
     const head = document.getElementsByTagName('head')[0]
@@ -20,11 +22,6 @@ window.onload = function () {
   }
 
   function calculate () {
-    // const loadEventSeconds = (p.timing.loadEventStart - p.timing.loadEventEnd) / 1000
-    // print('load page', loadEventSeconds)
-
-    // const loadEventSeconds = (p.timing.loadEventStart - p.timing.loadEventEnd) / 1000
-    // print('load page', loadEventSeconds)
 
     const table = []
     const keys = Object.keys(performance.timing.toJSON())
@@ -41,8 +38,8 @@ window.onload = function () {
     })
     console.table(sortedTable)
 
-    const domContentLoadedEventEnd = (p.timing.domContentLoadedEventEnd - p.timing.responseEnd) / 1000
-    print('domContentLoadedEventEnd', domContentLoadedEventEnd)
+    const domContentLoadedEventEndSeconds = (p.timing.domContentLoadedEventEnd - p.timing.domLoading) / 1000
+    print('domContentLoadedEventEnd', domContentLoadedEventEndSeconds)
 
     const loadEventSeconds = (p.timing.loadEventEnd - p.timing.responseEnd) / 1000
     print('load page', loadEventSeconds)
@@ -55,6 +52,9 @@ window.onload = function () {
   load.addEventListener('click', function () {
     addScript()
   })
+  // image.onload = function () {
+  //   console.log("The image has loaded!");
+  // };
   setTimeout(function () {
     calculate()
   }, 0)
